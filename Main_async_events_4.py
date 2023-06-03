@@ -1,6 +1,5 @@
 import asyncio
 import aiohttp
-import csv
 import json
 import sys
 from datetime import datetime
@@ -65,7 +64,7 @@ def save_content_to_json(all_authors_w_events: List[Author],
     """
     if filename is None:
         date_time = datetime.now().strftime("%Y.%m.%d__%H:%M")
-        filename = f"MAsync_{date_time}.json"
+        filename = f"Kalektar_{date_time}.json"
     print(f"\nStart saving authors to file {filename!r}...")
 
     all_authors_as_dicts__list = []
@@ -95,6 +94,6 @@ if __name__ == "__main__":
     save_content_to_json(all_authors_w_events)
 
     msg_finish_success = f"=> Process finished successfully!\nAsync time: {datetime.now() - start}\n"
-    print(msg_finish_success)
+    print("\n", msg_finish_success)
     logger.info(msg_finish_success)
 

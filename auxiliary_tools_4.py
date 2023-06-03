@@ -1,3 +1,4 @@
+import os
 import json
 import fake_useragent
 from datetime import datetime
@@ -37,20 +38,14 @@ def show_dict_as_json(dict_: Dict) -> json:
 def create_temp_file_json(all_authors_list: List,
                           filename: str = "TEMP_all_authors") -> None:
     all_authors_for_json = [author.author_obj_into_dict() for author in all_authors_list]
-    with open(f"{filename}.json", "w", encoding='utf-8') as jf:
+
+    temp_folder = create_folder("temp")
+    with open(f"{temp_folder}/{filename}.json", "w", encoding='utf-8') as jf:
         json.dump(all_authors_for_json, jf, indent=4, ensure_ascii=False)
 
 
-def NO_get_author_content_from_json_file(filename) -> Generator[Tuple[Author, int], None, None]:
-    with open(filename) as jf:
-        all_authors_from_json = json.load(jf)
-
-    # Variable 'all_authors_list' contains all authors collected in 3 languages,
-    # and their data except 'events'
-    all_authors_list = [Author.author_dict_into_obj(i) for i in all_authors_from_json]
-
-    count_authors = len(all_authors_list)
-    print(f"[INFO] {count_authors} author{'s are' if count_authors > 1 else ' is'} got from the file:\n{filename!r}")
-
-    for author in all_authors_list:
-        yield author, count_authors
+def create_folder(dir_name: str) -> str:
+    dir_path = os.path.join(os.getcwd(), dir_name)
+    if not os.path.exists(dir_path):
+        os.mkdir(dir_path)
+    return dir_path

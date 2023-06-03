@@ -1,5 +1,8 @@
 import os
+from auxiliary_tools_4 import create_folder
 
+
+log_dir = create_folder("logs")
 
 logger_config = {
     'version': 1,
@@ -15,13 +18,13 @@ logger_config = {
             'class': 'logging.FileHandler',
             # level = NOTSET(0),
             'formatter': 'logger_formatter',
-            'filename': os.path.join(os.getcwd(), 'log_varta.log'),
+            'filename': os.path.join(os.getcwd(), log_dir, 'log_varta.log'),
         },
         'logger_error_handler': {
             'class': 'logging.FileHandler',
             'level': 'ERROR',
             'formatter': 'logger_formatter',
-            'filename': os.path.join(os.getcwd(), 'log_error_varta.log'),
+            'filename': os.path.join(os.getcwd(), log_dir, 'log_error_varta.log'),
         }
     },
     'loggers': {
@@ -32,4 +35,3 @@ logger_config = {
         }
     }
 }
-

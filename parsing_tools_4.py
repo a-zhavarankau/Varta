@@ -2,9 +2,8 @@ import sys
 import asyncio
 import random
 from bs4 import BeautifulSoup as bs
-from typing import List, Dict, Tuple, Any, Optional, Union, Generator
-from requests import exceptions
-from config import PROC_STOP_MSG, NA_SIGN, URL, URL_END
+from typing import List, Dict, Any, Optional, Union, Generator
+from config import PROC_STOP_MSG, NA_SIGN, URL
 
 
 class Author:

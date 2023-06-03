@@ -13,4 +13,3 @@ logger_formatter = logging.Formatter('{asctime} - {levelname} - {message}', date
 logger_handler.setFormatter(logger_formatter)
 
 logger.addHandler(logger_handler)
-

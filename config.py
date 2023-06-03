@@ -1,8 +1,7 @@
-# UPD 13.05.2023: URL = "https://kalektar.org/be/in/names/"
-#
-# where: https://kalektar.org   /be   /in/names/
-#        --------------------   ---   ----------
-#                URL            LANG    URL_END
+# UPDATE 13.05.2023:
+# URL = https://kalektar.org   /be   /in/names/
+#       --------------------   ---   ----------
+#               URL            LANG    URL_END
 
 URL = "https://kalektar.org"
 URL_END = "/in/names/"

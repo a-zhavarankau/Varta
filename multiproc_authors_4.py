@@ -85,7 +85,7 @@ def get_authors_by_lang(lang: str) -> Tuple[str, List[Author]]:
         authors in specified language.
     """
     url = URL
-    url_end = "/in/names/"
+    url_end = URL_END
     response = get_main_response_and_check_200(url, url_end, lang)
     print(f"{lang.upper()!r}", response)
     all_authors_list_lang = []
@@ -140,5 +140,3 @@ def main_multiproc():
 if __name__ == "__main__":
     res = main_multiproc()
     print(res)
-
-

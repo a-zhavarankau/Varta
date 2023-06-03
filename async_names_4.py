@@ -1,5 +1,3 @@
-import sys
-import json
 import asyncio
 import aiohttp
 from multiproc_authors_4 import main_multiproc
@@ -7,7 +5,7 @@ from typing import List, Dict
 from parsing_tools_4 import Author, text_handler
 from auxiliary_tools_4 import get_headers, create_temp_file_json
 from bs4 import BeautifulSoup as bs
-from config import NA_SIGN, PROC_STOP_MSG
+from config import NA_SIGN
 import logging.config
 from settings import logger_config
 
