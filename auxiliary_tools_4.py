@@ -49,3 +49,39 @@ def create_folder(dir_name: str) -> str:
     if not os.path.exists(dir_path):
         os.mkdir(dir_path)
     return dir_path
+
+
+def compare_two_collections(file_1=False, file_2=False) -> None:
+    """ Function to determine if there are new authors in the new file
+        compared to the old file.
+    """
+    if (file_1 or file_2) is False:
+        return
+
+    with open(file_1) as old_file, open(file_2) as new_file:
+        list_1 = json.load(old_file)
+        list_2 = json.load(new_file)
+        list_old = [Author.author_dict_into_obj(i) for i in list_1]
+        list_new = [Author.author_dict_into_obj(i) for i in list_2]
+
+        find_difference_in_lists(msg="New authors", from_list=list_new,
+                                 in_list=list_old)
+        find_difference_in_lists(msg="Old authors", from_list=list_old,
+                                 in_list=list_new)
+
+
+def find_difference_in_lists(msg: str, from_list: List[Author],
+                             in_list: List[Author]) -> None:
+    print(f"\n{msg}:")
+    i = 0
+    for author in from_list:
+        if author not in in_list:
+            i += 1
+            print(i, author)
+    if i == 0:
+        print("No authors to represent")
+
+
+file1 = "Kalektar_2023.06.05__03:09.json"
+file2 = "Kalektar_2023.06.20__16:13.json"
+compare_two_collections(file1, file2)
